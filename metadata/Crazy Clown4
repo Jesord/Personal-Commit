@@ -1,0 +1,43 @@
+{
+    "name": "Cyborg Chimp #4",
+    "description": "A muscular chimpanzee-like character wearing a white T-shirt and jeans, featuring a silver cyborg mask and glowing eyes.",
+    "image": "ipfs://bafybeigcbhawpaumpzvcqkxlihixzrvs3eu7zhvcemrlf7nxuq6pwttqcq",
+    "attributes": [
+        {
+            "trait_type": "Species",
+            "value": "Chimpanzee"
+        },
+        {
+            "trait_type": "Physique",
+            "value": "Muscular"
+        },
+        {
+            "trait_type": "Outfit",
+            "value": "White T-Shirt & Jeans"
+        },
+        {
+            "trait_type": "Head Accessory",
+            "value": "Silver Cyborg Mask"
+        },
+        {
+            "trait_type": "Left Eye",
+            "value": "Red Glowing"
+        },
+        {
+            "trait_type": "Right Eye",
+            "value": "Yellow Glowing"
+        },
+        {
+            "trait_type": "Jewelry",
+            "value": "Silver Chain & Watch"
+        },
+        {
+            "trait_type": "Holding",
+            "value": "Oil Can"
+        },
+        {
+            "trait_type": "Mouth Accessory",
+            "value": "Cigar"
+        }
+    ]
+}

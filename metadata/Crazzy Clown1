@@ -1,0 +1,35 @@
+{
+    "name": "Robot Monkey #1",
+    "description": "A festive robot monkey celebrating with oil and a cigar.",
+    "image": "ipfs://bafybeicbwe3nv5oorengrcieptzqrv73cndrgk5sfxywpl6ilclsxtne5e",
+    "attributes": [
+        {
+            "trait_type": "Subject",
+            "value": "Robot Monkey"
+        },
+        {
+            "trait_type": "Head",
+            "value": "Mechanical"
+        },
+        {
+            "trait_type": "Left Eye",
+            "value": "Red"
+        },
+        {
+            "trait_type": "Right Eye",
+            "value": "Yellow"
+        },
+        {
+            "trait_type": "Clothing",
+            "value": "Santa Hat & Patterned Shirt"
+        },
+        {
+            "trait_type": "Accessory",
+            "value": "Cigar & Bandolier"
+        },
+        {
+            "trait_type": "Holding",
+            "value": "Oil Container & Silver Gun"
+        }
+    ]
+}

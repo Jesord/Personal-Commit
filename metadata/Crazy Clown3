@@ -1,0 +1,39 @@
+{
+    "name": "Viscous Ape #3",
+    "description": "An anthropomorphic ape-like creature covered in dripping black viscous liquid, holding an oil can and smoking a cigar.",
+    "image": "ipfs://bafybeifs5sseqmp4esflqioznddbe6li2upuhcd26aagakvssh5ti3lsdu",
+    "attributes": [
+        {
+            "trait_type": "Species",
+            "value": "Anthropomorphic Ape"
+        },
+        {
+            "trait_type": "Body Covering",
+            "value": "Viscous Black Liquid"
+        },
+        {
+            "trait_type": "Face Material",
+            "value": "Robotic Metal"
+        },
+        {
+            "trait_type": "Left Eye",
+            "value": "Red"
+        },
+        {
+            "trait_type": "Right Eye",
+            "value": "Yellow"
+        },
+        {
+            "trait_type": "Accessory",
+            "value": "Smoking Cigar"
+        },
+        {
+            "trait_type": "Holding",
+            "value": "Oil Can"
+        },
+        {
+            "trait_type": "Background",
+            "value": "Solid Gray"
+        }
+    ]
+}

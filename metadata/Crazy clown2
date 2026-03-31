@@ -1,0 +1,39 @@
+{
+    "name": "Oil-Dripping Ape #2",
+    "description": "A humanoid ape-like figure covered in dripping black oil, featuring a robotic face with glowing eyes.",
+    "image": "ipfs://bafybeieapens3wrrevjcppcsinywynyezugfcm5stsns7s7riq3ud7gfhq",
+    "attributes": [
+        {
+            "trait_type": "Species",
+            "value": "Humanoid Ape"
+        },
+        {
+            "trait_type": "Body Covering",
+            "value": "Dripping Oil"
+        },
+        {
+            "trait_type": "Face",
+            "value": "Robotic Metal"
+        },
+        {
+            "trait_type": "Left Eye",
+            "value": "Red Glowing"
+        },
+        {
+            "trait_type": "Right Eye",
+            "value": "Yellow Glowing"
+        },
+        {
+            "trait_type": "Mouth Accessory",
+            "value": "Cigar"
+        },
+        {
+            "trait_type": "Holding",
+            "value": "Oil Can 01"
+        },
+        {
+            "trait_type": "Wrist Accessory",
+            "value": "Watch"
+        }
+    ]
+}

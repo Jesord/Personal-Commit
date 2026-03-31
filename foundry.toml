@@ -1,0 +1,15 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+
+[profile.ci]
+# Settings for CI/CD
+fuzz = { runs = 10000 }
+
+
+# Remappings
+remappings = ["@openzeppelin/contracts=lib/openzeppelin-contracts/contracts"]
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
