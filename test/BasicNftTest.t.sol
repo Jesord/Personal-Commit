@@ -48,9 +48,7 @@ contract BasicNftTest is Test {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
 
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertEq(tokenId, 0);
         assertEq(basicNft.tokenCounter(), 1);
@@ -100,8 +98,7 @@ contract BasicNftTest is Test {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
 
-        string
-            memory tokenUri = "ipfs://bafybeifm5jlemvhc4qcuw7arocpny35dso423hudnrckgbkwc2p5hi3r6y/";
+        string memory tokenUri = "ipfs://bafybeifm5jlemvhc4qcuw7arocpny35dso423hudnrckgbkwc2p5hi3r6y/";
         uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(tokenUri);
 
         assertEq(basicNft.tokenURI(tokenId), tokenUri);
@@ -111,9 +108,7 @@ contract BasicNftTest is Test {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
 
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertTrue(basicNft.isTokenLocked(tokenId));
     }
@@ -156,9 +151,7 @@ contract BasicNftTest is Test {
     function testOwnerOfNftReturnsCorrectOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertEq(basicNft.ownerOfNft(tokenId), user1);
     }
@@ -204,8 +197,8 @@ contract BasicNftTest is Test {
         uint256 token2 = basicNft.mintNft{value: 0.001 ether}("ipfs://uri2/");
 
         assert(
-            keccak256(abi.encodePacked(basicNft.tokenURI(token1))) !=
-                keccak256(abi.encodePacked(basicNft.tokenURI(token2)))
+            keccak256(abi.encodePacked(basicNft.tokenURI(token1)))
+                != keccak256(abi.encodePacked(basicNft.tokenURI(token2)))
         );
     }
 
@@ -214,9 +207,7 @@ contract BasicNftTest is Test {
     function testIsTokenOwnerReturnsTrue() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertTrue(basicNft.isTokenOwner(tokenId, user1));
     }
@@ -224,9 +215,7 @@ contract BasicNftTest is Test {
     function testIsTokenOwnerReturnsFalse() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertFalse(basicNft.isTokenOwner(tokenId, user2));
     }
@@ -240,9 +229,7 @@ contract BasicNftTest is Test {
     function testLockTokenByOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -258,9 +245,7 @@ contract BasicNftTest is Test {
     function testLockTokenFailsIfNotOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -273,9 +258,7 @@ contract BasicNftTest is Test {
     function testLockTokenEmitsEvent() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -291,9 +274,7 @@ contract BasicNftTest is Test {
     function testUnlockTokenByOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertTrue(basicNft.isTokenLocked(tokenId));
 
@@ -306,9 +287,7 @@ contract BasicNftTest is Test {
     function testUnlockTokenFailsIfNotOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user2);
         vm.expectRevert("Only token owner can unlock");
@@ -318,9 +297,7 @@ contract BasicNftTest is Test {
     function testUnlockTokenEmitsEvent() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         vm.expectEmit(true, true, false, false);
@@ -333,9 +310,7 @@ contract BasicNftTest is Test {
     function testIsTokenLockedReturnsTrueForLockedToken() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         assertTrue(basicNft.isTokenLocked(tokenId));
     }
@@ -343,9 +318,7 @@ contract BasicNftTest is Test {
     function testIsTokenLockedReturnsFalseForUnlockedToken() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -358,9 +331,7 @@ contract BasicNftTest is Test {
     function testTransferFromFailsIfTokenLocked() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         vm.expectRevert("Token is security-locked and cannot be transferred");
@@ -370,9 +341,7 @@ contract BasicNftTest is Test {
     function testTransferFromSucceedsWhenUnlockedByOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -386,9 +355,7 @@ contract BasicNftTest is Test {
     function testTransferFromFailsIfNotAuthorized() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -401,9 +368,7 @@ contract BasicNftTest is Test {
     function testTransferFromSucceedsIfWhitelisted() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -420,9 +385,7 @@ contract BasicNftTest is Test {
     function testTransferFromSucceedsIfFromIsApproved() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -441,9 +404,7 @@ contract BasicNftTest is Test {
     function testSafeTransferFromFailsIfTokenLocked() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         vm.expectRevert("Token is security-locked and cannot be transferred");
@@ -453,9 +414,7 @@ contract BasicNftTest is Test {
     function testSafeTransferFromSucceedsWhenUnlockedByOwner() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -469,9 +428,7 @@ contract BasicNftTest is Test {
     function testSafeTransferFromFailsIfNotAuthorized() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -484,9 +441,7 @@ contract BasicNftTest is Test {
     function testSafeTransferFromSucceedsIfWhitelisted() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -642,9 +597,7 @@ contract BasicNftTest is Test {
     function testWhitelistTransfererAllowsTransfer() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -679,9 +632,7 @@ contract BasicNftTest is Test {
     function testRemoveTransfererWhitelistPreventsTransfer() public {
         vm.deal(user1, 1 ether);
         vm.prank(user1);
-        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}(
-            "ipfs://token1/"
-        );
+        uint256 tokenId = basicNft.mintNft{value: 0.001 ether}("ipfs://token1/");
 
         vm.prank(user1);
         basicNft.unlockToken(tokenId);
@@ -703,7 +654,7 @@ contract BasicNftTest is Test {
         vm.deal(user1, 1 ether);
 
         vm.prank(user1);
-        (bool success, ) = address(basicNft).call{value: 0.5 ether}("");
+        (bool success,) = address(basicNft).call{value: 0.5 ether}("");
 
         assertTrue(success);
         assertEq(address(basicNft).balance, 0.5 ether);
@@ -714,11 +665,11 @@ contract BasicNftTest is Test {
         vm.deal(user2, 3 ether);
 
         vm.prank(user1);
-        (bool success1, ) = address(basicNft).call{value: 0.5 ether}("");
+        (bool success1,) = address(basicNft).call{value: 0.5 ether}("");
         assertTrue(success1);
 
         vm.prank(user2);
-        (bool success2, ) = address(basicNft).call{value: 0.3 ether}("");
+        (bool success2,) = address(basicNft).call{value: 0.3 ether}("");
         assertTrue(success2);
 
         assertEq(address(basicNft).balance, 0.8 ether);
