@@ -26,8 +26,7 @@ contract DeployBasicNftTest is Test {
     function testContractIsDeployedWithCorrectName() public {
         basicNft = deployer.run();
         helperConfig = new HelperConfig();
-        HelperConfig.NetworkConfig memory config = helperConfig
-            .getNetworkConfig();
+        HelperConfig.NetworkConfig memory config = helperConfig.getNetworkConfig();
 
         // Verify the name matches the configuration
         assertEq(basicNft.name(), config.name);
@@ -36,8 +35,7 @@ contract DeployBasicNftTest is Test {
     function testContractIsDeployedWithCorrectSymbol() public {
         basicNft = deployer.run();
         helperConfig = new HelperConfig();
-        HelperConfig.NetworkConfig memory config = helperConfig
-            .getNetworkConfig();
+        HelperConfig.NetworkConfig memory config = helperConfig.getNetworkConfig();
 
         // Verify the symbol matches the configuration
         assertEq(basicNft.symbol(), config.symbol);

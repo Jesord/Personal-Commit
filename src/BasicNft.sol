@@ -28,7 +28,11 @@ contract BasicNft is ERC721URIStorage, Ownable {
     event TokenUnlocked(uint256 indexed tokenId, address indexed owner);
     event FeeWithdrawn(address indexed to, uint256 amount);
 
-    constructor(string memory name, string memory symbol, string memory tokenUri)
+    constructor(
+        string memory name,
+        string memory symbol
+        //string memory tokenUri
+    )
         ERC721(name, symbol)
         Ownable(msg.sender)
     {

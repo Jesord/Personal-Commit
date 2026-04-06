@@ -61,9 +61,7 @@ contract HelperConfig is Script {
      * @param chainId The chain ID to get config for
      * @return The NetworkConfig for the specified chain
      */
-    function getNetworkConfigByChainId(
-        uint256 chainId
-    ) public returns (NetworkConfig memory) {
+    function getNetworkConfigByChainId(uint256 chainId) public returns (NetworkConfig memory) {
         activeNetworkConfig = networkConfigs[chainId];
         return activeNetworkConfig;
     }
@@ -73,10 +71,7 @@ contract HelperConfig is Script {
      * @param chainId The chain ID to set config for
      * @param config The NetworkConfig to set
      */
-    function setNetworkConfig(
-        uint256 chainId,
-        NetworkConfig memory config
-    ) public {
+    function setNetworkConfig(uint256 chainId, NetworkConfig memory config) public {
         networkConfigs[chainId] = config;
         emit NetworkConfigSet(chainId);
     }

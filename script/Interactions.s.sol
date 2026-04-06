@@ -9,8 +9,10 @@ contract Interactions is Script {
     function run() public returns (BasicNft) {
         // Deploy BasicNft by owner account
         vm.startBroadcast();
-        BasicNft basicNft =
-            new BasicNft("CrazyClowns", "CC", "ipfs/bafybeifm5jlemvhc4qcuw7arocpny35dso423hudnrckgbkwc2p5hi3r6y/");
+        BasicNft basicNft = new BasicNft(
+            "CrazyClowns",
+            "CC" //"ipfs/bafybeifm5jlemvhc4qcuw7arocpny35dso423hudnrckgbkwc2p5hi3r6y/"
+        );
         vm.stopBroadcast();
 
         // Run end-to-end interaction scenario

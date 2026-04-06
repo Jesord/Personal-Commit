@@ -18,12 +18,15 @@ contract BasicNftTest is Test {
         user2 = makeAddr("user2");
         vault = makeAddr("vault");
 
-        basicNft = new BasicNft("TestNFT", "TNFT", "ipfs://initial/");
+        basicNft = new BasicNft(
+            "TestNFT",
+            "TNFT" //"ipfs://initial/"
+        );
     }
 
     // ============ CONSTRUCTOR TESTS ============
 
-    function testConstructorInitializes() public {
+    function testConstructorInitializes() public view {
         assertEq(basicNft.tokenCounter(), 0);
         assertEq(basicNft.name(), "TestNFT");
         assertEq(basicNft.symbol(), "TNFT");
@@ -31,11 +34,11 @@ contract BasicNftTest is Test {
         assertEq(basicNft.owner(), owner);
     }
 
-    function testConstructorSetsVaultAddress() public {
+    function testConstructorSetsVaultAddress() public view {
         assertEq(basicNft.vaultAddress(), owner);
     }
 
-    function testConstructorWhitelistsOwner() public {
+    function testConstructorWhitelistsOwner() public view {
         assertTrue(basicNft.whitelistedTransferers(owner));
     }
 
@@ -228,7 +231,7 @@ contract BasicNftTest is Test {
         assertFalse(basicNft.isTokenOwner(tokenId, user2));
     }
 
-    function testIsTokenOwnerReturnsFalseForNonexistentToken() public {
+    function testIsTokenOwnerReturnsFalseForNonexistentToken() public view {
         assertFalse(basicNft.isTokenOwner(999, user1));
     }
 
@@ -723,7 +726,7 @@ contract BasicNftTest is Test {
 
     // ============ TOKENS OF OWNER TESTS ============
 
-    function testTokensOfOwnerEmpty() public {
+    function testTokensOfOwnerEmpty() public view {
         uint256[] memory tokens = basicNft.tokensOfOwner(user1);
         assertEq(tokens.length, 0);
     }

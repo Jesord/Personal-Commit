@@ -10,8 +10,7 @@ contract DeployBasicNft is Script {
     function run() public returns (BasicNft) {
         // Get the appropriate network configuration
         HelperConfig helperConfig = new HelperConfig();
-        HelperConfig.NetworkConfig memory networkConfig = helperConfig
-            .getNetworkConfig();
+        HelperConfig.NetworkConfig memory networkConfig = helperConfig.getNetworkConfig();
 
         // Start broadcast for deployment transaction
         vm.startBroadcast();
@@ -19,10 +18,10 @@ contract DeployBasicNft is Script {
         // Deploy BasicNft contract
         BasicNft basicNft = new BasicNft(
             networkConfig.name,
-            networkConfig.symbol,
-            networkConfig.tokenUri
+            networkConfig.symbol
+            //networkConfig.tokenUri
         );
-
+        // Stop broadcast after deployment
         vm.stopBroadcast();
 
         return basicNft;
