@@ -16,11 +16,7 @@ contract DeployBasicNft is Script {
         vm.startBroadcast();
 
         // Deploy BasicNft contract
-        BasicNft basicNft = new BasicNft(
-            networkConfig.name,
-            networkConfig.symbol
-            //networkConfig.tokenUri
-        );
+        BasicNft basicNft = new BasicNft(networkConfig.name, networkConfig.symbol);
         // Stop broadcast after deployment
         vm.stopBroadcast();
 

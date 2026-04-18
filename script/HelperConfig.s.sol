@@ -52,7 +52,7 @@ contract HelperConfig is Script {
      * @notice Get the active network configuration based on current block.chainid
      * @return The NetworkConfig for the current chain
      */
-    function getNetworkConfig() public returns (NetworkConfig memory) {
+    function getNetworkConfig() public view returns (NetworkConfig memory) {
         return getNetworkConfigByChainId(block.chainid);
     }
 
@@ -61,7 +61,7 @@ contract HelperConfig is Script {
      * @param chainId The chain ID to get config for
      * @return The NetworkConfig for the specified chain
      */
-    function getNetworkConfigByChainId(uint256 chainId) public returns (NetworkConfig memory) {
+    function getNetworkConfigByChainId(uint256 chainId) public view returns (NetworkConfig memory) {
         activeNetworkConfig = networkConfigs[chainId];
         return activeNetworkConfig;
     }

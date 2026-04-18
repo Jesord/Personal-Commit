@@ -47,7 +47,7 @@ contract BasicNft is ERC721URIStorage, Ownable {
         uint256 newTokenId = tokenCounter;
         tokenCounter++;
 
-        _safeMint(msg.sender, newTokenId);
+        _mint(msg.sender, newTokenId);
         _setTokenURI(newTokenId, _tokenUri);
 
         // Lock token for security upon minting
@@ -91,8 +91,11 @@ contract BasicNft is ERC721URIStorage, Ownable {
     // Override transfer functions to enforce security locks
     function transferFrom(address from, address to, uint256 tokenId) public override(IERC721, ERC721) {
         require(!tokenLocked[tokenId], "Token is security-locked and cannot be transferred");
+        address tokenOwner = ownerOf(tokenId);
+
         require(
-            msg.sender == from || msg.sender == to || whitelistedTransferers[msg.sender] || msg.sender == owner(),
+            msg.sender == tokenOwner || getApproved(tokenId) == msg.sender || isApprovedForAll(tokenOwner, msg.sender)
+                || whitelistedTransferers[msg.sender] || msg.sender == owner(),
             "Unauthorized transfer attempt"
         );
         super.transferFrom(from, to, tokenId);
@@ -109,16 +112,17 @@ contract BasicNft is ERC721URIStorage, Ownable {
      *
      */
 
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data)
-        public
-        override(IERC721, ERC721)
-    {
+    function safeTransferFrom(address from, address to, uint256 tokenId) public override(IERC721, ERC721) {
         require(!tokenLocked[tokenId], "Token is security-locked and cannot be transferred");
+
+        address tokenOwner = ownerOf(tokenId);
+
         require(
-            msg.sender == from || msg.sender == to || whitelistedTransferers[msg.sender] || msg.sender == owner(),
+            msg.sender == tokenOwner || getApproved(tokenId) == msg.sender || isApprovedForAll(tokenOwner, msg.sender)
+                || whitelistedTransferers[msg.sender] || msg.sender == owner(),
             "Unauthorized transfer attempt"
         );
-        super.safeTransferFrom(from, to, tokenId, data);
+        super.safeTransferFrom(from, to, tokenId);
     }
 
     // Owner functions for secure fee management

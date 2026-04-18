@@ -19,8 +19,8 @@ contract BasicNftTest is Test {
         vault = makeAddr("vault");
 
         basicNft = new BasicNft(
-            "TestNFT",
-            "TNFT" //"ipfs://initial/"
+            "CrazyClowns",
+            "CC" //"ipfs://initial/"
         );
     }
 
@@ -31,7 +31,7 @@ contract BasicNftTest is Test {
         assertEq(basicNft.name(), "TestNFT");
         assertEq(basicNft.symbol(), "TNFT");
         assertEq(basicNft.mintFee(), 0.001 ether);
-        assertEq(basicNft.owner(), owner);
+        assertEq(basicNft.owner(), tx.origin);
     }
 
     function testConstructorSetsVaultAddress() public view {
